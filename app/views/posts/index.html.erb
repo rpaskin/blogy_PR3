@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<br>
+
+<center> 
+  <h2>Olá, meu nome é Thor e esse é um blog simples, feito para a disciplina de PR3.</h2>
+</center>
+
+<br>
+
+<%if @posts.count == 0 %>
+  <center>
+    <p><h2>Nenhum post até o momento</h2></p>
+    <br>
+    <p><h2>Se quiser, <%= link_to 'Crie um', new_post_path %></h2></p>
+  </center>
+
+<% else %>
+  <h1>Listando todos os <%= @posts.count %> Posts:</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Descrição</th>
+        <th>Data de postagem</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= truncate(post.description, length: 20) %></td>
+          <td><%= post.when_posted %></td>
+          <td><%= link_to 'Ver post', post %></td>
+          <td><%= link_to 'Editar post', edit_post_path(post) %></td>
+          <td><%= link_to 'Deletar', post, method: :delete, data: { confirm: 'Certeza?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Postar de novo', new_post_path %>
+<% end %>

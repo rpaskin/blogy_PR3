@@ -1,0 +1,21 @@
+<center>
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Titulo:</strong>
+	  <%= @post.title %>
+	</p>
+
+	<p>
+	  <strong>Descrição:</strong>
+	  <%= @post.description %>
+	</p>
+
+	<p>
+	  <strong>Data de postagem:</strong>
+	  <%= @post.when_posted %>
+	</p>
+
+	<%= link_to 'Editar', edit_post_path(@post) %> |
+	<%= link_to 'Voltar', posts_path %>
+</center>
