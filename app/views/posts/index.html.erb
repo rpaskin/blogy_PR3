@@ -16,7 +16,7 @@
   </center>
 
 <% else %>
-  <h1>Listando todos os <%= @posts.count %> Posts:</h1>
+  <h1>Listando todos os <%= pluralize(@posts.count, 'post') %>:</h1>
 
   <table>
     <thead>
